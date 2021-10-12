@@ -1,0 +1,46 @@
+{% extends './__layout.njk' %}
+{% from './_meta.njk' import meta %}
+
+{% block head %}
+	{{ meta('Belajar Pemrograman', 'Kamu bisa belajar pemrograman di manapun asalkan numpang wifi') }}
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Festive&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+	<div class="isi-index">
+		<h1>Belajar Pemrograman</h1>
+		<h2>"Kamu bisa belajar pemrograman di manapun asalkan numpang wifi" (Zen, 2021)</h2>
+		<div class='list-kelas'>
+			{% for x in collections.postingan %}
+				<a href="/kelas/{{ x.data.kategori }}">
+					<img src="/ikon/{{ x.data.kategori }}.jpg" alt="Kelas {{ x.data.kategori }}">
+				</a>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
+
+<style lang="windi">
+	.isi-index {
+		background: #202124;
+		color: #bdc1c6;
+		@apply min-h-screen <md:(bg-violet-200);
+	}
+	.isi-index * {
+		@apply <md:text-violet-900;
+	}
+	.isi-index .list-kelas {
+		@apply grid grid-cols-10 <md:grid-cols-3;
+	}
+	.isi-index h1 {
+		font-size: 100px;
+		font-family: 'Festive', cursive;
+		@apply text-center <md:(text-[70px] pt-5);
+	}
+	.isi-index h2 {
+		@apply text-center pb-5;
+		font-family: 'Times New Roman';
+	}
+</style>

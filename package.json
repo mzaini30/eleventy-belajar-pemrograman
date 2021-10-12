@@ -1,0 +1,27 @@
+{
+  "name": "eleventy-belajar-pemrograman",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "eleventy --serve & windicss \"./src/**/*.njk\" --style -mtd -o \"./build/windi.css\"",
+    "css": "windicss \"./src/**/*.njk\" --style -mt -o \"./build/windi.css\"",
+    "build": "eleventy && windicss \"./src/**/*.njk\" --style -mt -o \"./build/windi.css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mzaini30/eleventy-belajar-pemrograman.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mzaini30/eleventy-belajar-pemrograman/issues"
+  },
+  "homepage": "https://github.com/mzaini30/eleventy-belajar-pemrograman#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.0-beta.2",
+    "@sherby/eleventy-plugin-files-minifier": "^1.1.1",
+    "windicss": "^3.1.9"
+  }
+}
