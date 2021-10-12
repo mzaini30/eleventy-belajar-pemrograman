@@ -1,0 +1,36 @@
+<p>Install dependencies yang diperlukan:</p><pre><code class="language-bash">pnpm i -D @snowpack/plugin-postcss postcss-windicss
+</code></pre><p>Isi dari <code>postcss.config.js</code>:</p><pre><code class="language-javascript">module.exports = {
+  plugins: {
+    'postcss-windicss': { /* ... */ },
+  },
+};
+</code></pre><p>Isi dari <code>snowpack.config.js</code>:</p><pre><code class="language-javascript">module.exports = {
+  "plugins": [
+    "@snowpack/plugin-postcss"
+  ]
+}
+</code></pre><p>Isi dari <code>windi.config.js</code>:</p><pre><code class="language-javascript">import { defineConfig } from 'windicss/helpers'
+
+export default defineConfig({
+  extract: {
+    include: ['src/**/*.{html,vue,jsx,tsx,svelte,astro}'],
+  },
+  /* ... */
+})
+</code></pre><p>Isi dari <code>src/pages/_global.css</code>:</p><pre><code class="language-css">@windicss;
+</code></pre><p>Isi dari <code>src/pages/__layout.astro</code>:</p><pre><code class="language-astro">---
+import './_global.css'
+---
+
+&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>
+	&lt;meta charset="UTF-8">
+	&lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+	&lt;title>Document&lt;/title>
+&lt;/head>
+&lt;body>
+	&lt;slot>&lt;/slot>	
+&lt;/body>
+&lt;/html>
+</code></pre>

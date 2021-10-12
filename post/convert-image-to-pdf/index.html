@@ -1,0 +1,6 @@
+<p>Install dulu ImageMagick:</p><pre><code class="language-bash">sudo apt install imagemagick
+</code></pre><p>Lalu, atur supaya bisa convert ke PDF:</p><pre><code class="language-bash">sudo subl /etc/ImageMagick-6/policy.xml
+</code></pre><p>Perhatikan pada bagian:</p><pre><code class="language-xml">&lt;policy domain="coder" rights="none" pattern="PDF" />
+</code></pre><p>Ubah menjadi:</p><pre><code class="language-xml">&lt;policy domain="coder" rights="read|write" pattern="PDF" />
+</code></pre><p>Lalu, untuk convertnya, misal <code>a.jpg</code> menjadi <code>a.pdf</code>:</p><pre><code class="language-bash">convert a.jpg a.pdf
+</code></pre>
